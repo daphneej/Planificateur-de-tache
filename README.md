@@ -1,2 +1,2 @@
 # maNouvelleApp
-Ceci est ma nouvelle aplication
+Ceci est ma nouvelle application
