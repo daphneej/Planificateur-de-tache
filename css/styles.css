@@ -4,7 +4,9 @@ html {
           box-sizing: border-box;
 }
 
-*, *::before, *::after {
+html *,
+html *::before,
+html *::after {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -13,7 +15,7 @@ html {
           box-sizing: inherit;
 }
 
-body {
+html body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;

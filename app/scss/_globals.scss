@@ -1,19 +1,21 @@
 html{
     font-size: 100%;
     box-sizing: border-box;
-}
-
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-decoration: none;
-    box-sizing: inherit;
-}
-
-body{
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: transparent;
+    
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-decoration: none;
+        box-sizing: inherit;
+    }
+    
+    body {
+        width: 100vw;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: transparent;
+    }
 }
