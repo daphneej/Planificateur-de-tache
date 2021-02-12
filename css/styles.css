@@ -25,7 +25,7 @@ html #page {
           flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: -webkit-gradient(linear, right top, left top, from(#131a30), to(#5e1841));
   background: linear-gradient(to left, #131a30, #5e1841);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,17 +35,14 @@ html #page #header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1rem 1.5rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 1rem .5rem;
   background-color: #090b13;
 }
 
@@ -88,6 +85,8 @@ html #page #container #formeTache {
   background-color: #131a30;
   font-weight: bold;
   margin-bottom: 5rem;
+  -webkit-box-shadow: .1rem 1rem 1.5rem #000000;
+          box-shadow: .1rem 1rem 1.5rem #000000;
 }
 
 html #page #container #formeTache #tacheInfos {
@@ -117,15 +116,21 @@ html #page #container #formeTache #ajoutTache {
   outline: none;
   padding: .5rem 1rem;
   margin: 1.5rem 0;
-  background-color: #010b1d;
   color: #f7ABdf;
+}
+
+html #page #container #formeTache #tache {
+  border-right: .1rem solid #5e1841;
+  background-color: #010b1d;
 }
 
 html #page #container #formeTache #ajoutTache {
   cursor: pointer;
+  background-color: #020304;
 }
 
 html #page #container #formeTache #filtre {
+  width: 15rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,7 +145,7 @@ html #page #container #formeTache #filtre {
   color: #f7ABdf;
   border: none;
   outline: none;
-  padding: .5rem 1rem;
+  padding: .5rem;
   font-size: 1.1rem;
   cursor: pointer;
 }
@@ -160,6 +165,8 @@ html #page #container #tacheListe {
   padding: .4rem;
   border-radius: .5rem;
   background-color: #6b8ad1;
+  -webkit-box-shadow: .1rem 1rem 1.5rem #000000;
+          box-shadow: .1rem 1rem 1.5rem #000000;
 }
 
 html #page #container #tacheListe #tacheTittle {
@@ -190,7 +197,7 @@ html #page #container #tacheListe .tache .tacheTexte {
   font-weight: bold;
   font-size: 1.2rem;
   padding: .3rem;
-  margin: .2rem auto;
+  margin: .2rem auto 1.5rem auto;
   text-align: center;
   background-color: #c6ccda;
   border-radius: .5rem;
