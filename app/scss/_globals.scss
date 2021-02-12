@@ -17,16 +17,16 @@ html{
         flex-direction: column;
         width: 100vw;
         height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
         background: linear-gradient(to left, #131a30, #5e1841);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
         #header{
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             align-items: center;
-            padding: 1rem 1.5rem;
-            justify-content: space-between;
+            justify-content: space-around;
+            padding: 1rem .5rem;
             background-color: #090b13;
 
             * {
@@ -55,6 +55,7 @@ html{
                 background-color: #131a30;
                 font-weight: bold;
                 margin-bottom: 5rem;
+                box-shadow: .1rem 1rem 1.5rem #000000;
 
                 #tacheInfos{
                     display: flex;
@@ -76,15 +77,20 @@ html{
                     outline: none;
                     padding: .5rem 1rem;
                     margin: 1.5rem 0;
-                    background-color: #010b1d;
                     color: #f7ABdf;
                 }
 
+                #tache{
+                    border-right: .1rem solid #5e1841;
+                    background-color: #010b1d;
+                }
                 #ajoutTache {
                     cursor: pointer;
+                    background-color: #020304;
                 }
                 
                 #filtre {
+                    width: 15rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -93,7 +99,7 @@ html{
                     color: #f7ABdf;
                     border: none;
                     outline: none;
-                    padding: .5rem 1rem;
+                    padding: .5rem;
                     font-size: 1.1rem;
                     cursor: pointer;
                 }
@@ -107,6 +113,7 @@ html{
                 padding: .4rem;
                 border-radius: .5rem;
                 background-color: #6b8ad1;
+                box-shadow: .1rem 1rem 1.5rem #000000;
 
                 #tacheTittle{
                     font-size: 2rem;
@@ -127,7 +134,7 @@ html{
                         font-weight: bold;
                         font-size: 1.2rem;
                         padding: .3rem;
-                        margin: .2rem auto;
+                        margin: .2rem auto 1.5rem auto;
                         text-align: center;
                         background-color: #c6ccda;
                         border-radius: .5rem;
