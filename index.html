@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des choses à faire</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-    <header>
-        <h1 id="logo">DaphTech</h1>
-        <h3 id="titre">Liste des choses à faire</h3>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Liste des choses à faire</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body id="page">
+        
+        <header id="header">
+            <h1 id="logo">DaphTech</h1>
+            <h3 id="titre">Liste des choses à faire</h3>
+        </header>
 
-    <form action=""id="formeTache">
-        <input type="text"id="tache">
-        <button id="ajoutTache">Ajouter tâche</button>
-        <select name="" id="filtre">
-            <option value="touteTache">toute tâche</option>
-            <option selected value="Complete">Complete</option>
-            
-            <option value="incomplete">Incomplete</option>
-        </select>
-       </form>
+        <form id="formeTache">
+            <label id="tacheLabel" for="tache">Tâche</label>
+            <input type="text"id="tache" placeholder="Nouvelle Tâche">
+            <button id="ajoutTache">Ajouter Tâche</button>
 
-    <ul  id="tacheListe">
-        <div class ="tache"> <li class=tacheTexte>faire l'amour</li>
-            <button id ="tacheSup">Supprimer</button>
-            <button id="tacheComp">Completer</button>
-        </div>
-        <div class ="tache"> <li class=tacheTexte> dormir</li>
-            <button id ="tacheSup">Supprimer</button>
-            <button id="tacheComp">Completer</button>
-        </div>
-        <div class ="tache"> <li class=tacheTexte>manger des mangues</li>
-            <button id ="tacheSup">Supprimer</button>
-            <button id="tacheComp">Completer</button>
-        </div>
-        <div class ="tache"> <li class=tacheTexte>Boire de l'eau</li>
-            <button id ="tacheSup">Supprimer</button>
-            <button id="tacheComp">Completer</button>
-        </div>
-     </ul>
+            <select  id="filtre">
+                <option value="touteTache">Toutes Les Tâches</option>
+                <option selected value="Complete">Completes</option>
+                <option value="incomplete">Incompletes</option>
+            </select>
+        </form>
 
+        <ul id="tacheListe">
+            <div class ="tache">
+                <li class=tacheTexte>Faire l'amour</li>
+                <button id ="tacheSup">Supprimer</button>
+                <button id="tacheComp">Completer</button>
+            </div>
 
-    <script src="./app/scripts.js"></script>
-</body>
+            <div class ="tache">
+                <li class=tacheTexte>Dormir</li>
+                <button id ="tacheSup">Supprimer</button>
+                <button id="tacheComp">Completer</button>
+            </div>
+            <div class ="tache">
+                <li class=tacheTexte>Manger des mangues</li>
+                <button id ="tacheSup">Supprimer</button>
+                <button id="tacheComp">Completer</button>
+            </div>
+            <div class ="tache">
+                <li class=tacheTexte>Boire de l'eau</li>
+                <button id ="tacheSup">Supprimer</button>
+                <button id="tacheComp">Completer</button>
+            </div>
+        </ul>
+
+        <script src="./app/scripts.js"></script>
+    </body>
 </html>

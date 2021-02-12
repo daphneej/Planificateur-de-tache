@@ -12,10 +12,79 @@ html{
         box-sizing: inherit;
     }
     
-    body {
+    #page {
+        display: flex;
+        flex-direction: column;
         width: 100vw;
-        min-height: 100vh;
+        height: 100vh;
         overflow-x: hidden;
-        background: transparent;
+        background: linear-gradient(to right, #AD0F10, #93f010);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.3rem;
+
+        #header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            justify-content: space-between;
+        }
+
+        #header *{
+            color: #010b15;
+            text-shadow: 0rem 0rem .5rem;
+            font-size: 2.5rem;
+            margin: .4rem;
+        }
+
+        #formeTache{
+            display: flex;
+            align-self: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background-color: #3e5eBc;
+            color: #ffffff;
+            font-weight: bold;
+            width: 40rem;
+            min-height: 5rem;
+            margin: 1rem auto;
+            font-size: 1.5rem;
+            
+            *{
+                padding: .3rem .5rem;
+            }
+
+            #tacheLabel{
+                margin-right: .1rem;
+            }
+
+            #tache, #ajoutTache{
+                font-size: 1.2rem;
+                background-color: #010b15;
+                color: #ffffff;
+                border: none;
+                outline: none;
+                padding: .5rem 1rem;
+                margin: 1.5rem 0;
+            }
+
+            #filtre {
+                display: flex;
+                justify-content: center;
+                margin: auto;
+                background-color: #010b15;
+                color: #ffffff;
+                border: none;
+                outline: none;
+                padding: .5rem 1rem;
+            }
+
+            #tacheListe {
+                background-color: #3e5eBc;
+                margin: 2.5rem auto;
+                padding: 1rem;
+            }
+        }
     }
 }
