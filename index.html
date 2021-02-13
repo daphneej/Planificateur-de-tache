@@ -11,23 +11,24 @@
         
         <header id="header">
             <h1 id="logo">DaphTech</h1>
-            <h3 id="titre">Liste des choses à faire</h3>
+            <h1 id="titre">Liste des choses à faire</h1>
         </header>
 
         <section id="container">
             <form id="formeTache">
-                
-                <div id="tacheInfos">
-                    <label id="tacheLabel" for="tache">Tâche</label>
-                    <input type="text"id="tache" placeholder="Entrer Une Nouvelle Tâche">
-                    <button id="ajoutTache">Ajouter Tâche</button>
-                </div>
                 
                 <select  id="filtre">
                     <option value="touteTache">Toutes Les Tâches</option>
                     <option selected value="Complete">Completes</option>
                     <option value="incomplete">Incompletes</option>
                 </select>
+
+                <div id="tacheInfos">
+                    <label id="tacheLabel" for="tache">Tâche</label>
+                    <input type="text"id="tache" placeholder="Entrer Une Nouvelle Tâche">
+                    <button id="ajoutTache">+</button>
+                </div>
+                
             </form>
 
             <ul id="tacheListe">
@@ -66,6 +67,6 @@
             </ul>
         </section>
 
-        <script src="./app/scripts.js"></script>
+        <script src="./app/js/scripts.js"></script>
     </body>
 </html>

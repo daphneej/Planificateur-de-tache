@@ -31,8 +31,6 @@ html{
 
             * {
                 color: #010b15;
-                font-size: 2.5rem;
-                margin: .4rem;
                 text-align: center;
                 color: #ffffff;
             }
@@ -46,15 +44,13 @@ html{
             flex-wrap: wrap;
 
             #formeTache {
-                width: 35rem;
-                height: 20rem;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 1rem;
                 background-color: #131a30;
-                font-weight: bold;
-                margin-bottom: 5rem;
+                margin: 0 .5rem 1.5rem;
                 box-shadow: .1rem 1rem 1.5rem #000000;
 
                 #tacheInfos{
@@ -67,15 +63,13 @@ html{
 
                 #tacheLabel {
                     margin-right: 1rem;
-                    font-size: 1.2rem;
                 }
 
                 #tache,
                 #ajoutTache {
-                    font-size: 1.2rem;
                     border: none;
                     outline: none;
-                    padding: .5rem 1rem;
+                    padding: .5rem .7rem;
                     margin: 1.5rem 0;
                     color: #f7ABdf;
                 }
@@ -100,17 +94,17 @@ html{
                     border: none;
                     outline: none;
                     padding: .5rem;
-                    font-size: 1.1rem;
+                    margin-bottom: 2.5rem;
                     cursor: pointer;
                 }
             }
 
             #tacheListe {
-                flex: 1;
+                flex: 3;
                 display: flex;
                 flex-direction: column;
-                margin: 0 2rem;
-                padding: .4rem;
+                margin: 0 .5rem;
+                padding: .5rem;
                 border-radius: .5rem;
                 background-color: #6b8ad1;
                 box-shadow: .1rem 1rem 1.5rem #000000;
@@ -125,56 +119,53 @@ html{
                     flex-direction: column;
                     justify-content: space-around;
                     align-items: center;
-                    margin: 1rem 0;
-                    padding: .5rem;
-                    background-color: #2f3033;
+                    padding: .2rem;
+                    background-color: #1a1b1d;
 
                     .tacheTexte {
                         width: 100%;
                         font-weight: bold;
-                        font-size: 1.2rem;
-                        padding: .3rem;
-                        margin: .2rem auto 1.5rem auto;
-                        text-align: center;
+                        padding: .2rem .5rem;
+                        margin: .2rem auto .2rem auto;
                         background-color: #c6ccda;
-                        border-radius: .5rem;
+                        font-size: .856rem;
                     }
 
                     .tacheControl {
-                        width: 50%;
                         display: flex;
                         justify-content: space-around;
                         align-items: center;
-                        padding: .1rem auto;
                     }
 
                     .tacheSup {
-                        margin: .2rem .4rem;
                         cursor: pointer;
+                        margin: .2rem .4rem;
                         border-radius: .5rem;
                         padding: .1rem .5rem;
-                        font-size: 1.1rem;
+                        font-size: .856rem;
                         font-weight: bold;
                         outline: none;
                         border: none;
                     }
 
                     .tacheComp {
-                        margin: .2rem .4rem;
                         cursor: pointer;
+                        margin: .2rem .4rem;
                         font-weight: bold;
                         background-color: #000000;
                         color: #93f010;
                         border-radius: .5rem;
                         padding: .1rem .5rem;
-                        font-size: 1.1rem;
+                        font-size: .856rem;
                         outline: none;
                         border: none;
                     }
 
                     .complete {
                         text-decoration: line-through;
-                        color: gray;
+                        font-weight: bold;
+                        text-shadow: .1rem .1rem 1rem #fe0000;
+                        color: rgba(53, 53, 61, 0.823);
                     }
                 }
             }
