@@ -38,7 +38,7 @@ html{
 
         #container{
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: flex-start;
             padding: 1rem;
             flex-wrap: wrap;
@@ -110,6 +110,7 @@ html{
                 box-shadow: .1rem 1rem 1.5rem #000000;
 
                 #tacheTittle{
+                    text-align: center;
                     font-size: 2rem;
                     margin: 1rem auto;
                 }

@@ -2,6 +2,7 @@
 const tacheListe = _('#tacheListe');
 const formeTache = _('#formeTache');
 const tacheInput = _('#tache');
+const tacheTittle = _('#tacheTittle');
 /* -------------------------------------------------------------------- */
 
 
@@ -21,18 +22,16 @@ class Tache{
 class UI{
 
     static listerTaches(){
-        const taches = [
-            new Tache("Aller a la piscine", true),
-            new Tache("Faire du velo", false),
-            new Tache("Dormir toute la journee", false),
-            new Tache("Manger au restau", true),
-            new Tache("Manger du pain"),
-            new Tache("Etudier mes lecons", false)
-        ];
+        const taches = Store.getTaches();
 
-        taches.forEach((tache)=>{
-            UI.ajouterTache(tache)
-        });
+        if(taches.length === 0){
+            tacheTittle.innerText = 'La liste des taches est vide';
+        }else{
+            tacheTittle.innerText = 'Les Tâches';
+            taches.forEach((tache)=>{
+                UI.ajouterTache(tache);
+            });
+        }
     }
 
     static ajouterTache(tache){
@@ -61,6 +60,40 @@ class UI{
         tacheInput.value = '';
     }
 }
+
+
+/* class tache stockage */
+class Store{
+
+    static getTaches(){
+
+        let taches;
+
+        if (localStorage.getItem('taches') === null) {
+            taches = [];
+        }else{
+            taches = JSON.parse(localStorage.getItem('taches'));
+        }
+        return taches;
+    }
+
+    static setTache(tache){
+        const tachesTab = Store.getTaches();
+        tachesTab.push(tache);
+        localStorage.setItem('taches', JSON.stringify(tachesTab));
+    }
+
+    // static removeTache(tacheSupprime){
+    //     const taches = Store.getTaches();
+    //     taches.forEach((tache, index)=>{
+    //         if (tache.tacheSupprime) {
+    //             tache.splice(index, 1);
+    //         }
+    //     });
+    //     localStorage.setItem('taches', JSON.stringify(taches));
+    // }
+
+}
 /* -------------------------------------------------------------------- */
 
 
@@ -75,6 +108,7 @@ formeTache.addEventListener('submit', (e)=>{
     let inputTache = tacheInput.value;
     let nouvelleTache = new Tache(inputTache, false);
     UI.ajouterTache(nouvelleTache);
+    Store.setTache(nouvelleTache);
     UI.clearField();
 });
 
@@ -111,7 +145,3 @@ function _(selector) { return document.querySelector(selector); }
 /* Create element */
 function __(element) { return document.createElement(element); }
 /* -------------------------------------------------------------------- */
-
-
-
-// tacheListe.appendChild();
