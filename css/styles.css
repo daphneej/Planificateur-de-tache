@@ -56,8 +56,9 @@ html #page #container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -166,6 +167,7 @@ html #page #container #tacheListe {
 }
 
 html #page #container #tacheListe #tacheTittle {
+  text-align: center;
   font-size: 2rem;
   margin: 1rem auto;
 }
