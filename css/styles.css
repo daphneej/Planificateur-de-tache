@@ -187,6 +187,7 @@ html #page #container #tacheListe .tache {
           align-items: center;
   padding: .2rem;
   background-color: #1a1b1d;
+  margin-bottom: .5rem;
 }
 
 html #page #container #tacheListe .tache .tacheTexte {
