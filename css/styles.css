@@ -25,7 +25,7 @@ html #page {
           flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: -webkit-gradient(linear, right top, left top, from(#131a30), to(#5e1841));
   background: linear-gradient(to left, #131a30, #5e1841);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,24 +35,19 @@ html #page #header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1rem 1.5rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 1rem .5rem;
   background-color: #090b13;
 }
 
 html #page #header * {
   color: #010b15;
-  font-size: 2.5rem;
-  margin: .4rem;
   text-align: center;
   color: #ffffff;
 }
@@ -72,8 +67,9 @@ html #page #container {
 }
 
 html #page #container #formeTache {
-  width: 35rem;
-  height: 20rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,8 +82,9 @@ html #page #container #formeTache {
           align-items: center;
   padding: 1rem;
   background-color: #131a30;
-  font-weight: bold;
-  margin-bottom: 5rem;
+  margin: 0 .5rem 1.5rem;
+  -webkit-box-shadow: .1rem 1rem 1.5rem #000000;
+          box-shadow: .1rem 1rem 1.5rem #000000;
 }
 
 html #page #container #formeTache #tacheInfos {
@@ -107,25 +104,29 @@ html #page #container #formeTache #tacheInfos {
 
 html #page #container #formeTache #tacheLabel {
   margin-right: 1rem;
-  font-size: 1.2rem;
 }
 
 html #page #container #formeTache #tache,
 html #page #container #formeTache #ajoutTache {
-  font-size: 1.2rem;
   border: none;
   outline: none;
-  padding: .5rem 1rem;
+  padding: .5rem .7rem;
   margin: 1.5rem 0;
-  background-color: #010b1d;
   color: #f7ABdf;
+}
+
+html #page #container #formeTache #tache {
+  border-right: .1rem solid #5e1841;
+  background-color: #010b1d;
 }
 
 html #page #container #formeTache #ajoutTache {
   cursor: pointer;
+  background-color: #020304;
 }
 
 html #page #container #formeTache #filtre {
+  width: 15rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,15 +141,15 @@ html #page #container #formeTache #filtre {
   color: #f7ABdf;
   border: none;
   outline: none;
-  padding: .5rem 1rem;
-  font-size: 1.1rem;
+  padding: .5rem;
+  margin-bottom: 2.5rem;
   cursor: pointer;
 }
 
 html #page #container #tacheListe {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,10 +157,12 @@ html #page #container #tacheListe {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 2rem;
-  padding: .4rem;
+  margin: 0 .5rem;
+  padding: .5rem;
   border-radius: .5rem;
   background-color: #6b8ad1;
+  -webkit-box-shadow: .1rem 1rem 1.5rem #000000;
+          box-shadow: .1rem 1rem 1.5rem #000000;
 }
 
 html #page #container #tacheListe #tacheTittle {
@@ -180,24 +183,20 @@ html #page #container #tacheListe .tache {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1rem 0;
-  padding: .5rem;
-  background-color: #2f3033;
+  padding: .2rem;
+  background-color: #1a1b1d;
 }
 
 html #page #container #tacheListe .tache .tacheTexte {
   width: 100%;
   font-weight: bold;
-  font-size: 1.2rem;
-  padding: .3rem;
-  margin: .2rem auto;
-  text-align: center;
+  padding: .2rem .5rem;
+  margin: .2rem auto .2rem auto;
   background-color: #c6ccda;
-  border-radius: .5rem;
+  font-size: .856rem;
 }
 
 html #page #container #tacheListe .tache .tacheControl {
-  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,34 +205,35 @@ html #page #container #tacheListe .tache .tacheControl {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .1rem auto;
 }
 
 html #page #container #tacheListe .tache .tacheSup {
-  margin: .2rem .4rem;
   cursor: pointer;
+  margin: .2rem .4rem;
   border-radius: .5rem;
   padding: .1rem .5rem;
-  font-size: 1.1rem;
+  font-size: .856rem;
   font-weight: bold;
   outline: none;
   border: none;
 }
 
 html #page #container #tacheListe .tache .tacheComp {
-  margin: .2rem .4rem;
   cursor: pointer;
+  margin: .2rem .4rem;
   font-weight: bold;
   background-color: #000000;
   color: #93f010;
   border-radius: .5rem;
   padding: .1rem .5rem;
-  font-size: 1.1rem;
+  font-size: .856rem;
   outline: none;
   border: none;
 }
 
 html #page #container #tacheListe .tache .complete {
   text-decoration: line-through;
-  color: gray;
+  font-weight: bold;
+  text-shadow: .1rem .1rem 1rem #fe0000;
+  color: rgba(53, 53, 61, 0.823);
 }
