@@ -1,7 +1,7 @@
 // SELECTIONS
 const tacheListe = _('#tacheListe');
-
-
+const formeTache = _('#formeTache');
+const tacheInput = _('#tache');
 /* -------------------------------------------------------------------- */
 
 
@@ -30,30 +30,35 @@ class UI{
             new Tache("Etudier mes lecons", false)
         ];
 
-        let tacheDivs = new Array();
-
         taches.forEach((tache)=>{
-            tacheDivs.push(UI.ajouterTache(tache));
+            UI.ajouterTache(tache)
         });
-        tacheListe.innerHTML = tacheDivs;
     }
 
     static ajouterTache(tache){
         let completeClass = (tache.tacheComplete) ? "complete" : "incomplete";
         let tacheText = tache.tacheText;
 
-        let div = `
-            <div class ="tache">
-                <li class="tacheTexte ${completeClass}">
-                    ${tacheText}
-                </li>
-                <div class="tacheControl">
-                    <button class="tacheSup">Supprimer</button>
-                    <button class="tacheComp">Completer</button>
-                </div>
+        let div = __('div');
+        div.classList.add('tache');
+
+        let li = `
+            <li class="tacheTexte ${completeClass}">
+                ${tacheText}
+            </li>
+            <div class="tacheControl">
+                <button class="tacheSup">Supprimer</button>
+                <button class="tacheComp">Completer</button>
             </div>
         `;
-        return div;
+
+        div.innerHTML = li;
+
+        tacheListe.appendChild(div);
+    }
+
+    static clearField(){
+        tacheInput.value = '';
     }
 }
 /* -------------------------------------------------------------------- */
@@ -61,15 +66,52 @@ class UI{
 
 
 // EVENTS
+/* Lister taches */
 document.addEventListener('DOMContentLoaded', UI.listerTaches());
+
+/* Ajouter tache */
+formeTache.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let inputTache = tacheInput.value;
+    let nouvelleTache = new Tache(inputTache, false);
+    UI.ajouterTache(nouvelleTache);
+    UI.clearField();
+});
+
+/* Clompleter et Supprimer tache */
+tacheListe.addEventListener('click', (e)=>{
+    if (e.target.classList.contains('tacheSup') || e.target.classList.contains('tacheComp')) {
+        if (e.target.classList.contains('tacheSup')) {
+            let tacheSup = e.target;
+            let tacheToRemove = tacheSup.parentNode.parentNode;
+            tacheToRemove.remove();
+        } else {
+            let tacheComp = e.target;
+            let tacheToComplete = tacheComp.parentNode.previousElementSibling;
+
+            if (tacheToComplete.classList.contains('incomplete')) {
+                tacheToComplete.classList.remove('incomplete');
+                tacheToComplete.classList.add('complete');
+            }else{
+                tacheToComplete.classList.remove('complete');
+                tacheToComplete.classList.add('incomplete');
+            }
+        }
+    }
+});
 /* -------------------------------------------------------------------- */
 
 
 
 // FUNCTIONS
+
+/* Select element */
 function _(selector) { return document.querySelector(selector); }
+
+/* Create element */
+function __(element) { return document.createElement(element); }
 /* -------------------------------------------------------------------- */
 
 
 
-UI.ajouterTache(new Tache('Marcher sur la mer', false));
+// tacheListe.appendChild();
