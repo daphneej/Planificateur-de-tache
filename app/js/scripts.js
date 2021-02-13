@@ -9,8 +9,6 @@ const tacheTittle = _('#tacheTittle');
 
 
 // CLASSES
-
-/* class Tache */
 class Tache{
     constructor(tacheText, tacheComplete = false){
         this.tacheText = tacheText;
@@ -18,20 +16,15 @@ class Tache{
     }
 }
 
-/* class User Interface */
+
 class UI{
 
     static listerTaches(){
         const taches = Store.getTaches();
 
-        if(taches.length === 0){
-            tacheTittle.innerText = 'La liste des taches est vide';
-        }else{
-            tacheTittle.innerText = 'Les Tâches';
-            taches.forEach((tache)=>{
-                UI.ajouterTache(tache);
-            });
-        }
+        taches.forEach((tache)=>{
+            UI.ajouterTache(tache);
+        });
     }
 
     static ajouterTache(tache){
@@ -62,7 +55,6 @@ class UI{
 }
 
 
-/* class tache stockage */
 class Store{
 
     static getTaches(){
@@ -107,11 +99,11 @@ class Store{
 
 
 
+
 // EVENTS
-/* Lister taches */
 document.addEventListener('DOMContentLoaded', UI.listerTaches());
 
-/* Ajouter tache */
+
 formeTache.addEventListener('submit', (e)=>{
     e.preventDefault();
     let inputTache = tacheInput.value;
@@ -121,7 +113,7 @@ formeTache.addEventListener('submit', (e)=>{
     UI.clearField();
 });
 
-/* Clompleter et Supprimer tache */
+
 tacheListe.addEventListener('click', (e)=>{
     if (e.target.classList.contains('tacheSup') || e.target.classList.contains('tacheComp')) {
         if (e.target.classList.contains('tacheSup')) {
@@ -150,11 +142,9 @@ tacheListe.addEventListener('click', (e)=>{
 
 
 
-// FUNCTIONS
 
-/* Select element */
+// FUNCTIONS
 function _(selector) { return document.querySelector(selector); }
 
-/* Create element */
 function __(element) { return document.createElement(element); }
 /* -------------------------------------------------------------------- */
