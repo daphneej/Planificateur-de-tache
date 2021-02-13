@@ -83,16 +83,25 @@ class Store{
         localStorage.setItem('taches', JSON.stringify(tachesTab));
     }
 
-    // static removeTache(tacheSupprime){
-    //     const taches = Store.getTaches();
-    //     taches.forEach((tache, index)=>{
-    //         if (tache.tacheSupprime) {
-    //             tache.splice(index, 1);
-    //         }
-    //     });
-    //     localStorage.setItem('taches', JSON.stringify(taches));
-    // }
+    static removeTache(tacheText){
+        const taches = Store.getTaches();
+        taches.forEach((tache, index)=>{
+            if (tache.tacheText === tacheText) {
+                taches.splice(index, 1);
+            }
+        });
+        localStorage.setItem('taches', JSON.stringify(taches));
+    }
 
+    static completeTache(tacheText){
+        const taches = Store.getTaches();
+        taches.forEach((tache, index)=>{
+            if (tache.tacheText === tacheText) {
+                tache.tacheComplete = !(tache.tacheComplete);
+            }
+        });
+        localStorage.setItem('taches', JSON.stringify(taches));
+    }
 }
 /* -------------------------------------------------------------------- */
 
@@ -118,7 +127,9 @@ tacheListe.addEventListener('click', (e)=>{
         if (e.target.classList.contains('tacheSup')) {
             let tacheSup = e.target;
             let tacheToRemove = tacheSup.parentNode.parentNode;
+            let textTache = tacheToRemove.firstElementChild.innerText;
             tacheToRemove.remove();
+            Store.removeTache(textTache);
         } else {
             let tacheComp = e.target;
             let tacheToComplete = tacheComp.parentNode.previousElementSibling;
@@ -126,9 +137,11 @@ tacheListe.addEventListener('click', (e)=>{
             if (tacheToComplete.classList.contains('incomplete')) {
                 tacheToComplete.classList.remove('incomplete');
                 tacheToComplete.classList.add('complete');
+                Store.completeTache(tacheToComplete.innerText);
             }else{
                 tacheToComplete.classList.remove('complete');
                 tacheToComplete.classList.add('incomplete');
+                Store.completeTache(tacheToComplete.innerText);
             }
         }
     }
