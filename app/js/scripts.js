@@ -3,6 +3,7 @@ const tacheListe = _('#tacheListe');
 const formeTache = _('#formeTache');
 const tacheInput = _('#tache');
 const tacheTittle = _('#tacheTittle');
+const filtre = _('#filtre');
 /* -------------------------------------------------------------------- */
 
 
@@ -10,7 +11,7 @@ const tacheTittle = _('#tacheTittle');
 
 // CLASSES
 class Tache{
-    constructor(tacheText, tacheComplete = false){
+    constructor(tacheText, tacheComplete){
         this.tacheText = tacheText;
         this.tacheComplete = tacheComplete;
     }
@@ -24,6 +25,47 @@ class UI{
 
         taches.forEach((tache)=>{
             UI.ajouterTache(tache);
+        });
+    }
+
+    static listerToutesLesTaches(){
+        tacheListe.firstElementChild.innerText = 'Toutes les tâches';
+        const taches = tacheListe.children;
+        Array.from(taches).forEach((tache)=>{
+            if (tache.classList.contains('tache')) {
+                if (tache.firstElementChild.classList.contains('incomplete') || tache.firstElementChild.classList.contains('complete')) {
+                    tache.style.display = 'flex';
+                }
+            }
+        });
+    }
+
+    static listerTachesCompletes(){
+        tacheListe.firstElementChild.innerText = 'Les tâches completes';
+        const taches = tacheListe.children;
+        Array.from(taches).forEach((tache)=>{
+            if (tache.classList.contains('tache')) {
+                if (tache.firstElementChild.classList.contains('incomplete')) {
+                    tache.style.display = 'none';
+                }else{
+                    tache.style.display = 'flex';
+                }
+            }
+        });
+    }
+
+    static listerTachesIncompletes(){
+        tacheListe.firstElementChild.innerText = 'Les tâches incompletes';
+        const taches = tacheListe.children;
+
+        Array.from(taches).forEach((tache)=>{
+            if (tache.classList.contains('tache')) {
+                if (tache.firstElementChild.classList.contains('complete')) {
+                    tache.style.display = 'none';
+                }else{
+                    tache.style.display = 'flex';
+                }
+            }
         });
     }
 
@@ -103,6 +145,15 @@ class Store{
 // EVENTS
 document.addEventListener('DOMContentLoaded', UI.listerTaches());
 
+filtre.addEventListener('change', ()=>{
+    if (filtre.value === 'complete') {
+        UI.listerTachesCompletes();
+    }else if (filtre.value === 'incomplete') {
+        UI.listerTachesIncompletes();
+    }else{
+        UI.listerToutesLesTaches();
+     }
+});
 
 formeTache.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -144,7 +195,10 @@ tacheListe.addEventListener('click', (e)=>{
 
 
 // FUNCTIONS
+
+/* Select elements */
 function _(selector) { return document.querySelector(selector); }
 
+/* Create elements */
 function __(element) { return document.createElement(element); }
 /* -------------------------------------------------------------------- */
