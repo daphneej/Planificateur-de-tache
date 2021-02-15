@@ -23,50 +23,78 @@ class UI{
     static listerTaches(){
         const taches = Store.getTaches();
 
-        taches.forEach((tache)=>{
-            UI.ajouterTache(tache);
-        });
+        if (taches.length === 0) {
+            tacheListe.firstElementChild.innerText = `Il n'y a aucune tâche enregistrer pour le moment.`;
+        }else{
+            tacheListe.firstElementChild.innerText = 'Toutes les tâches';
+                taches.forEach((tache)=>{
+                UI.ajouterTache(tache);
+            });
+        }
     }
 
     static listerToutesLesTaches(){
-        tacheListe.firstElementChild.innerText = 'Toutes les tâches';
         const taches = tacheListe.children;
+        let tachesExiste = false;
+
         Array.from(taches).forEach((tache)=>{
             if (tache.classList.contains('tache')) {
                 if (tache.firstElementChild.classList.contains('incomplete') || tache.firstElementChild.classList.contains('complete')) {
                     tache.style.display = 'flex';
+                    tachesExiste = true;
                 }
             }
         });
+
+        if (tachesExiste) {
+            tacheListe.firstElementChild.innerText = 'Toutes les tâches';
+        } else {
+            tacheListe.firstElementChild.innerText = `Il n'y a aucune tâche enregistrer pour le moment.`;
+        }
     }
 
     static listerTachesCompletes(){
-        tacheListe.firstElementChild.innerText = 'Les tâches completes';
+        let tachesCompleteExiste = false;
         const taches = tacheListe.children;
         Array.from(taches).forEach((tache)=>{
             if (tache.classList.contains('tache')) {
                 if (tache.firstElementChild.classList.contains('incomplete')) {
                     tache.style.display = 'none';
                 }else{
-                    tache.style.display = 'flex';
+                    tache.style.display = '';
+                    tachesCompleteExiste = true;
                 }
             }
         });
+
+        if (tachesCompleteExiste) {
+            tacheListe.firstElementChild.innerText = 'Les tâches completes';
+        }else{
+            tacheListe.firstElementChild.innerText = 'Aucun tâches completes';
+        }
     }
 
     static listerTachesIncompletes(){
-        tacheListe.firstElementChild.innerText = 'Les tâches incompletes';
+        
         const taches = tacheListe.children;
+        let tachesIncompleteExiste = false;
 
         Array.from(taches).forEach((tache)=>{
             if (tache.classList.contains('tache')) {
                 if (tache.firstElementChild.classList.contains('complete')) {
                     tache.style.display = 'none';
                 }else{
-                    tache.style.display = 'flex';
+                    tache.style.display = '';
+                    tachesIncompleteExiste = true;
                 }
             }
         });
+
+        if (tachesIncompleteExiste) {
+            tacheListe.firstElementChild.innerText = 'Les tâches incompletes';
+        }else{
+            tacheListe.firstElementChild.innerText = 'Aucun tâches incompletes';
+        }
     }
 
     static ajouterTache(tache){
@@ -89,6 +117,7 @@ class UI{
         div.innerHTML = li;
 
         tacheListe.appendChild(div);
+        filtre.value = 'touteTache';
     }
 
     static clearField(){
