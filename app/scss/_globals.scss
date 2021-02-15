@@ -53,36 +53,6 @@ html{
                 margin: 0 .5rem 1.5rem;
                 box-shadow: .1rem 1rem 1.5rem #000000;
 
-                #tacheInfos{
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    align-items: center;
-                    color: #f7ABdf;
-                }
-
-                #tacheLabel {
-                    margin-right: 1rem;
-                }
-
-                #tache,
-                #ajoutTache {
-                    border: none;
-                    outline: none;
-                    padding: .5rem .7rem;
-                    margin: 1.5rem 0;
-                    color: #f7ABdf;
-                }
-
-                #tache{
-                    border-right: .1rem solid #5e1841;
-                    background-color: #010b1d;
-                }
-                #ajoutTache {
-                    cursor: pointer;
-                    background-color: #020304;
-                }
-                
                 #filtre {
                     width: 15rem;
                     display: flex;
@@ -96,6 +66,44 @@ html{
                     padding: .5rem;
                     margin-bottom: 2.5rem;
                     cursor: pointer;
+                }
+
+                #tacheInfos{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    color: #f7ABdf;
+
+                    #tacheBox{
+                        display: flex;
+                        flex-direction: column;
+
+                        #tacheLabel {
+                            text-align: center;
+                            font-size: 1.1rem;
+                            padding: .1rem;
+                            margin-bottom: .1rem;
+                        }
+                        #tache {
+                            border-right: .1rem solid #5e1841;
+                            background-color: #010b1d;
+                            border: none;
+                            outline: none;
+                            padding: .5rem .7rem;
+                            color: #f7ABdf;
+                        }
+                    }
+
+                    #ajoutTache {
+                        align-self: flex-end;
+                        border: none;
+                        outline: none;
+                        padding: .5rem .7rem;
+                        color: #f7ABdf;
+                        cursor: pointer;
+                        background-color: #020304;
+                    }
                 }
             }
 
@@ -146,8 +154,6 @@ html{
                         padding: .1rem .5rem;
                         font-size: .856rem;
                         font-weight: bold;
-                        background-color: #000000;
-                        color: #ffffff;
                         outline: none;
                         border: none;
                     }
